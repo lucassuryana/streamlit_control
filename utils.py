@@ -64,35 +64,4 @@ def simulation(kp, ki, kd, saturation = 1):
     
     return a, v, u, vref, time
 
-def if_cc():
-    st.write("In this section we will learn to simulate a cruise control with PID controller for a system with:")
-    st.write("- State variable: speed $(v)$ and acceleration $(a)$")
-    st.write("- Control input $(u)$")
-    st.write("- System dynamics:")
-    st.latex(r'''
-    \frac{dv(t)}{dt} = a(t)
-    ''')
-    st.latex(r'''
-    \frac{da(t)}{dt} = \frac{u(t)-a(t)}{c}
-    ''')
-    st.write("where $c$ is the delay of actuator with value of 0.2")
 
-    st.write("The control objective of this system is to maintain a reference speed $v_{ref}$ by implementing PID controller:")
-    st.latex(r'''
-     PID =
-     u(t) =
-     K_{p}e(t) + K_{i} \int_{0}^{t} e(\tau) d\tau + K_{d}\frac{de(t)}{dt}
-     ''')
-    st.write("where:")
-    st.latex(r'''
-     e(t) = v_{ref}(t) - v(t)
-     ''')
-    st.latex(r'''
-     u(t) \in [-2, 2]
-     ''')
-
-    st.write("Setting in the simulation:")
-    st.write("- Simulation period: 30 $s$")
-    st.write("- Reference speed changes from 29 to 30 $m/s$ from 5$s$ onward")
-    st.write("- Initial speed 29 $m/s$")
-    st.write("- Initial values of $K_{p}, K_{i}, K_{d}$ are respectively: 1, 0.01, 0.1")
